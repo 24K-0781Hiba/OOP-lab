@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//it is problem 2, not 3.
 class Vehicles {
 public:
     double price;
