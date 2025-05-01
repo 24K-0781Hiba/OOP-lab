@@ -5,8 +5,7 @@
 #include <string>
 
 using namespace std;
-
-// Class to represent an Employee Record
+/*Updated it late because i realized..THIS IS TASK 2, NOT TASK 3. I wasn't able to do task 3. The file names got mixed. Sprry :(*/
 class Employee {
 public:
     int id;
@@ -17,19 +16,16 @@ public:
     Employee(int id, string name, string designation, int years_of_service)
         : id(id), name(name), designation(designation), years_of_service(years_of_service) {}
 
-    // Method to print the employee record
     void print() {
         cout << id << ", " << name << ", " << designation << ", " << years_of_service << endl;
     }
 
-    // Method to serialize employee to CSV string
     string toCSV() {
         stringstream ss;
         ss << id << "," << name << "," << designation << "," << years_of_service;
         return ss.str();
     }
 
-    // Static method to deserialize CSV string to Employee object
     static Employee fromCSV(const string &csv) {
         stringstream ss(csv);
         string token;
@@ -47,7 +43,6 @@ public:
     }
 };
 
-// Function to load all employees from a file
 vector<Employee> loadEmployeesFromFile(const string& filename) {
     ifstream file(filename);
     vector<Employee> employees;
@@ -63,7 +58,6 @@ vector<Employee> loadEmployeesFromFile(const string& filename) {
     return employees;
 }
 
-// Function to save all employees back to the file
 void saveEmployeesToFile(const string& filename, const vector<Employee>& employees) {
     ofstream file(filename);
     for (const auto& emp : employees) {
@@ -72,7 +66,6 @@ void saveEmployeesToFile(const string& filename, const vector<Employee>& employe
     file.close();
 }
 
-// Function to find managers with at least 2 years of service
 vector<Employee> findManagersWithMinYears(const vector<Employee>& employees, int min_years) {
     vector<Employee> result;
     for (const auto& emp : employees) {
@@ -83,7 +76,6 @@ vector<Employee> findManagersWithMinYears(const vector<Employee>& employees, int
     return result;
 }
 
-// Function to delete all employees except the given ones
 void deleteEmployeesExcept(vector<Employee>& employees, const vector<Employee>& toKeep) {
     vector<Employee> newEmployees;
     for (const auto& emp : toKeep) {
@@ -94,8 +86,8 @@ void deleteEmployeesExcept(vector<Employee>& employees, const vector<Employee>& 
 
 void updateEmployeeData(vector<Employee>& employees) {
     for (auto& emp : employees) {
-        emp.id += 1;  // Increment ID
-        emp.years_of_service += 1;  // Increment years of service
+        emp.id += 1;
+        emp.years_of_service += 1; 
     }
 }
 
